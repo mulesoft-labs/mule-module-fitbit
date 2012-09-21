@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:fitbit="http://www.mulesoft.org/schema/mule/fitbit" 
+xmlns:http="http://www.mulesoft.org/schema/mule/http" 
+xmlns="http://www.mulesoft.org/schema/mule/core" 
+xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" 
+xmlns:spring="http://www.springframework.org/schema/beans" 
+version="EE-3.3.1" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+
+xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd 
+http://www.mulesoft.org/schema/mule/fitbit http://www.mulesoft.org/schema/mule/fitbit/3.3/mule-fitbit.xsd 
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd 
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd ">
+
+    <fitbit:config name="Fitbit" appKey="b300b2b88b3942edb6f9ba0f3e1b8b61" appSecret="6c1f7cfe19384b899e7f2a9796aae575" doc:name="Fitbit">
+        <fitbit:oauth-callback-config domain="localhost" localPort="8081" remotePort="8081" async="false" path="after_auth"/>
+    </fitbit:config>
+
+    <flow name="FitbitExampleFlow1" doc:name="FitbitExampleFlow1">
+        <http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="8081" path="fitbit"/>
+        <fitbit:authorize config-ref="Fitbit" />
+        <fitbit:get-foods config-ref="Fitbit" responseFormat="XML" userId="-" date="2012-09-21" />
+        <logger level="INFO" message="PAYLOAD IS #[payload]"/>
+    </flow>
+    
+</mule>

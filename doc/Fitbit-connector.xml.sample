@@ -1,0 +1,27 @@
+<!-- BEGIN_INCLUDE(fitbit:get-user-info) -->
+    <fitbit:get-user-info userId="1234567" />
+<!-- END_INCLUDE(fitbit:get-user-info) -->
+<!-- BEGIN_INCLUDE(fitbit:update-user-info) -->
+    <fitbit:update-user-info nickname="Muley" />
+<!-- END_INCLUDE(fitbit:update-user-info) -->
+<!-- BEGIN_INCLUDE(fitbit:get-body-measurements) -->
+    <fitbit:get-body-measurements userId="1234567" date="2012-12-21" />
+<!-- END_INCLUDE(fitbit:get-body-measurements) -->
+<!-- BEGIN_INCLUDE(fitbit:get-body-weight) -->
+    <fitbit:get-body-weight date="2012-12-21" />
+<!-- END_INCLUDE(fitbit:get-body-weight) -->
+<!-- BEGIN_INCLUDE(fitbit:get-body-weight-range) -->
+    <fitbit:get-body-weight-range date="2012-12-21" period="1w"/>
+<!-- END_INCLUDE(fitbit:get-body-weight-range) -->
+<!-- BEGIN_INCLUDE(fitbit:get-body-fat) -->
+    <fitbit:get-body-fat date="2012-12-21" />
+<!-- END_INCLUDE(fitbit:get-body-fat) -->
+<!-- BEGIN_INCLUDE(fitbit:get-body-fat-range) -->
+    <fitbit:get-body-fat-range date="2012-12-21" period="1w"/>
+<!-- END_INCLUDE(fitbit:get-body-fat-range) -->
+<!-- BEGIN_INCLUDE(fitbit:get-activities) -->
+    <fitbit:get-activities userId="1234567" date="2012-12-21" />
+<!-- END_INCLUDE(fitbit:get-activities) -->
+<!-- BEGIN_INCLUDE(fitbit:get-foods) -->
+    <fitbit:get-foods userId="1234567" date="2012-12-21" />
+<!-- END_INCLUDE(fitbit:get-foods) -->
