@@ -21,7 +21,7 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
     <flow name="FitbitExampleFlow1" doc:name="FitbitExampleFlow1">
         <http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="8081" path="fitbit"/>
         <fitbit:authorize config-ref="Fitbit" />
-        <fitbit:get-foods config-ref="Fitbit" responseFormat="XML" userId="-" date="2012-09-21" />
+        <fitbit:get-foods config-ref="Fitbit" responseFormat="JSON" userId="-" date="2012-09-21" />
         <logger level="INFO" message="PAYLOAD IS #[payload]"/>
     </flow>
     

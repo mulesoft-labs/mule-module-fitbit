@@ -20,6 +20,7 @@ import org.mule.api.annotations.rest.HttpMethod;
 import org.mule.api.annotations.rest.RestCall;
 import org.mule.api.annotations.rest.RestExceptionOn;
 import org.mule.api.annotations.rest.RestHeaderParam;
+import org.mule.api.annotations.rest.RestPostParam;
 import org.mule.api.annotations.rest.RestQueryParam;
 import org.mule.api.annotations.rest.RestUriParam;
 
@@ -107,10 +108,10 @@ public abstract class FitbitModule
     @OAuthProtected
     @RestCall(uri = "http://{server}:{port}/{api_version}/user/{user_id}/profile.{response_format}", 
               method = HttpMethod.GET, 
-              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] != 200]")})
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
     public abstract String getUserInfo(@RestHeaderParam("Accept-Language") @Optional @Default("US") UnitSystem unitSystem,
             @RestUriParam("api_version") @Optional @Default("1") String apiVersion,
-            @RestUriParam("user_id") String userId,
+            @RestUriParam("user_id") @Optional @Default("-") String userId,
             @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat) throws IOException;
 
     /**
@@ -136,16 +137,16 @@ public abstract class FitbitModule
     @OAuthProtected
     @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/profile.{response_format}", 
               method = HttpMethod.POST, 
-              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] != 200]")})
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
     public abstract String updateUserInfo(@RestHeaderParam("Accept-Language") @Optional @Default("US") UnitSystem unitSystem,
             @RestUriParam("api_version") @Optional @Default("1") String apiVersion,
             @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
-            @RestQueryParam("gender") @Optional Gender gender,
-            @RestQueryParam("birthday") @Optional String birthday,
-            @RestQueryParam("height") @Optional String height,
-            @RestQueryParam("nickname") @Optional String nickname,
-            @RestQueryParam("fullname") @Optional String fullname,
-            @RestQueryParam("timezone") @Optional String timezone) throws IOException;
+            @RestPostParam("gender") @Optional Gender gender,
+            @RestPostParam("birthday") @Optional String birthday,
+            @RestPostParam("height") @Optional String height,
+            @RestPostParam("nickname") @Optional String nickname,
+            @RestPostParam("fullname") @Optional String fullname,
+            @RestPostParam("timezone") @Optional String timezone) throws IOException;
     
     //======== User Collection Resources - Retrieving Collection Data =========================
     
@@ -169,10 +170,10 @@ public abstract class FitbitModule
     @OAuthProtected
     @RestCall(uri = "http://{server}:{port}/{api_version}/user/{user_id}/body/date/{date}.{response_format}", 
               method = HttpMethod.GET, 
-              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] != 200]")})
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
     public abstract String getBodyMeasurements(@RestHeaderParam("Accept-Language") @Optional @Default("US") UnitSystem unitSystem,
             @RestUriParam("api_version") @Optional @Default("1") String apiVersion,
-            @RestUriParam("user_id") String userId,
+            @RestUriParam("user_id") @Optional @Default("-") String userId,
             @RestUriParam("date") String date,        
             @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat) throws IOException;
     
@@ -195,7 +196,7 @@ public abstract class FitbitModule
     @OAuthProtected
     @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/body/log/weight/date/{date}.{response_format}", 
               method = HttpMethod.GET, 
-              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] != 200]")})
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
     public abstract String getBodyWeight(@RestHeaderParam("Accept-Language") @Optional @Default("US") UnitSystem unitSystem,
             @RestUriParam("api_version") @Optional @Default("1") String apiVersion,
             @RestUriParam("date") String date,        
@@ -222,7 +223,7 @@ public abstract class FitbitModule
     @OAuthProtected
     @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/body/log/weight/date/{date}/{period}.{response_format}", 
               method = HttpMethod.GET, 
-              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] != 200]")})
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
     public abstract String getBodyWeightRange(@RestHeaderParam("Accept-Language") @Optional @Default("US") UnitSystem unitSystem,
             @RestUriParam("api_version") @Optional @Default("1") String apiVersion,
             @RestUriParam("date") String date,        
@@ -248,7 +249,7 @@ public abstract class FitbitModule
     @OAuthProtected
     @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/body/log/fat/date/{date}.{response_format}", 
               method = HttpMethod.GET, 
-              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] != 200]")})
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
     public abstract String getBodyFat(@RestHeaderParam("Accept-Language") @Optional @Default("US") UnitSystem unitSystem,
             @RestUriParam("api_version") @Optional @Default("1") String apiVersion,
             @RestUriParam("date") String date,        
@@ -275,7 +276,7 @@ public abstract class FitbitModule
     @OAuthProtected
     @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/body/log/fat/date/{date}/{period}.{response_format}", 
               method = HttpMethod.GET, 
-              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] != 200]")})
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
     public abstract String getBodyFatRange(@RestHeaderParam("Accept-Language") @Optional @Default("US") UnitSystem unitSystem,
             @RestUriParam("api_version") @Optional @Default("1") String apiVersion,
             @RestUriParam("date") String date,        
@@ -301,10 +302,10 @@ public abstract class FitbitModule
     @OAuthProtected
     @RestCall(uri = "http://{server}:{port}/{api_version}/user/{user_id}/activities/date/{date}.{response_format}", 
               method = HttpMethod.GET, 
-              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] != 200]")})
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
     public abstract String getActivities(@RestHeaderParam("Accept-Language") @Optional @Default("US") UnitSystem unitSystem,
             @RestUriParam("api_version") @Optional @Default("1") String apiVersion,
-            @RestUriParam("user_id") String userId,
+            @RestUriParam("user_id") @Optional @Default("-") String userId,
             @RestUriParam("date") String date,        
             @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat) throws IOException;    
 
@@ -326,12 +327,1191 @@ public abstract class FitbitModule
     @OAuthProtected
     @RestCall(uri = "http://{server}:{port}/{api_version}/user/{user_id}/foods/log/date/{date}.{response_format}", 
               method = HttpMethod.GET, 
-              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] != 200]")})
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
     public abstract String getFoods(@RestUriParam("api_version") @Optional @Default("1") String apiVersion,
-            @RestUriParam("user_id") String userId,
+            @RestUriParam("user_id") @Optional @Default("-") String userId,
             @RestUriParam("date") String date,        
             @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat) throws IOException;   
     
+    /**
+     * Get a summary and list of a user's water log entries for a given day in the format requested using units in the unit system 
+     * which corresponds to the Accept-Language header provided. Water log entries are available only to authorized user, though if 
+     * you need to fetch only total amount of consumed water, you can use Get Foods endpoint. Water log entries in response are sorted 
+     * exactly the same as they are presented on the Fitbit website.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:get-foods}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param userId the ID of the Fitbit user or "-" (dash) to indicate user currently authenticated via the token credentials provided.
+     * @param responseFormat one of JSON or XML
+     * @param date The date in the format yyyy-MM-dd.
+     * @param unitSystem one of the US, UK or other
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return summary and list of a user's water log entries
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/{user_id}/water/log/date/{date}.{response_format}", 
+              method = HttpMethod.GET, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String getWater(@RestHeaderParam("Accept-Language") @Optional @Default("US") UnitSystem unitSystem,
+            @RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("user_id") @Optional @Default("-") String userId,
+            @RestUriParam("date") String date,        
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat) throws IOException;   
+
+    /**
+     * Get a summary and list of a user's sleep log entries for a given day in the format requested. Endpoint response includes 
+     * summary for all sleep log entries for the given day (including naps).
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:get-sleep}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param userId the ID of the Fitbit user or "-" (dash) to indicate user currently authenticated via the token credentials provided.
+     * @param responseFormat one of JSON or XML
+     * @param date The date in the format yyyy-MM-dd.
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return summary and list of a user's sleep log entries
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/{user_id}/sleep/date/{date}.{response_format}", 
+              method = HttpMethod.GET, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String getSleep(@RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("user_id") @Optional @Default("-") String userId,
+            @RestUriParam("date") String date,        
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat) throws IOException;   
+    
+    /**
+     * Get an average values and a list of user's heart rate log entries for a given day in the format requested. 
+     * Heart rate data available only to the authorized user. Heart rate log entries in response are sorted exactly 
+     * the same as they are presented on the Fitbit website. We always include all heart rate trackers in the 
+     * <average> section of the response body (with zero average values for the days with no measurements) to allow 
+     * to seamlessly fetch a list of all additional user created custom trackers.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:get-heart-rate}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param date The date in the format yyyy-MM-dd.
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return average values and a list of user's heart rate log entries
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/heart/date/{date}.{response_format}", 
+              method = HttpMethod.GET, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String getHeartRate(@RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("date") String date,        
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat) throws IOException;   
+
+    /**
+     * Get an average value and a list of user's blood pressure log entries for a given day in the format requested. 
+     * Blood pressure data available only to authorized user. Blood pressure log entries in response are sorted exactly 
+     * the same as they are presented on the Fitbit website.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:get-blood-pressure}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param date The date in the format yyyy-MM-dd.
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return average values and a list of user's blood pressure log entries
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/bp/date/{date}.{response_format}", 
+              method = HttpMethod.GET, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String getBloodPressure(@RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("date") String date,        
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat) throws IOException;   
+
+    /**
+     * Get a list of user's blood glucose and HbA1C measurements for a given day in the format requested using units in the 
+     * unit system which corresponds to the Accept-Language header provided. Glucose measurement log entries are available 
+     * only to authorized user. We always include all glucose trackers in the response body (with zero glucose value for the 
+     * days with no measurements) to allow to seamlessly fetch a list of all additional user created custom trackers.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:get-glucose}
+     * 
+     * @param unitSystem one of the US, UK or other
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param date The date in the format yyyy-MM-dd.
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return list of user's blood glucose and HbA1C measurements
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/glucose/date/{date}.{response_format}", 
+              method = HttpMethod.GET, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String getGlucose(@RestHeaderParam("Accept-Language") @Optional @Default("US") UnitSystem unitSystem,
+            @RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("date") String date,        
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat) throws IOException;   
+
+    //======== User Collection Resources - Logging & Deleting Collection Data =========================
+
+    /**
+     * Log body measurements using units in the unit system that corresponds to the Accept-Language header provided and get a response in the format requested.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:log-body-measurements}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param unitSystem optional unit system
+     * @param bicep optional/required Bicep; in the format X.XX 
+     * @param calf optional/required Calf; in the format X.XX 
+     * @param chest optional/required Chest; in the format X.XX 
+     * @param fat optional/required Body Fat %; in the format X.XX 
+     * @param forearm optional/required Forearm; in the format X.XX 
+     * @param hips optional/required Hips; in the format X.XX 
+     * @param neck optional/required Neck; in the format X.XX 
+     * @param thigh optional/required Thigh; in the format X.XX 
+     * @param waist optional/required Waist; in the format X.XX 
+     * @param weight optional/required Weight; in the format X.XX 
+     * @param date required Measurement date; in the format yyyy-MM-dd
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return Updated body measurements
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/body.{response_format}", 
+              method = HttpMethod.POST, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String logBodyMeasurements(@RestHeaderParam("Accept-Language") @Optional @Default("US") UnitSystem unitSystem,
+            @RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
+            @RestPostParam("bicep") @Optional String bicep,
+            @RestPostParam("calf") @Optional String calf,
+            @RestPostParam("chest") @Optional String chest,
+            @RestPostParam("fat") @Optional String fat,
+            @RestPostParam("forearm") @Optional String forearm,
+            @RestPostParam("hips") @Optional String hips,
+            @RestPostParam("neck") @Optional String neck,
+            @RestPostParam("thigh") @Optional String thigh,
+            @RestPostParam("waist") @Optional String waist,
+            @RestPostParam("weight") @Optional String weight,
+            @RestPostParam("date") String date) throws IOException;
+
+    /**
+     * Create log entry for a body weight using units in the unit system that corresponds to the Accept-Language 
+     * header provided and get a response in the format requested.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:log-body-weight}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param unitSystem optional unit system
+     * @param weight required Weight; in the format X.XX 
+     * @param date required Measurement date; in the format yyyy-MM-dd
+     * @param time optional Time of the measurement; hours and minutes in the format HH:mm:ss; set to last second of the day if not provided
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return new weight log entry
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/body/log/weight.{response_format}", 
+              method = HttpMethod.POST, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String logBodyWeight(@RestHeaderParam("Accept-Language") @Optional @Default("US") UnitSystem unitSystem,
+            @RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
+            @RestPostParam("weight") String weight,
+            @RestPostParam("date") String date,
+            @RestPostParam("time") @Optional String time) throws IOException;    
+
+    /**
+     * Create log entry for a body fat and get a response in the format requested.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:log-body-fat}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param unitSystem optional unit system
+     * @param fat required Body Fat; in the format X.XX, in the unit system that corresponds to the Accept-Language header provided
+     * @param date required Measurement date; in the format yyyy-MM-dd
+     * @param time optional Time of the measurement; hours and minutes in the format HH:mm:ss; set to last second of the day if not provided
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return new fat log entry
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/body/log/fat.{response_format}", 
+              method = HttpMethod.POST, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String logBodyFat(@RestHeaderParam("Accept-Language") @Optional @Default("US") UnitSystem unitSystem,
+            @RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
+            @RestPostParam("fat") String fat,
+            @RestPostParam("date") String date,
+            @RestPostParam("time") @Optional String time) throws IOException;    
+
+    /**
+     * Delete user's body weight log entry with the given id.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:delete-body-weight-log}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param bodyWeightLogId The id of the log entry.
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return 204 if successful
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/body/log/weight/{body_weight_log_id}.{response_format}", 
+              method = HttpMethod.DELETE, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String deleteBodyWeightLog(@RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
+            @RestUriParam("body_weight_log_id") String bodyWeightLogId) throws IOException;    
+    
+    /**
+     * Delete user's body fat log entry with the given id.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:delete-body-fat-log}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param bodyFatLogId The id of the log entry.
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return 204 if successful
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/body/log/fat/{body_fat_log_id}.{response_format}", 
+              method = HttpMethod.DELETE, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String deleteBodyFatLog(@RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
+            @RestUriParam("body_fat_log_id") String bodyFatLogId) throws IOException;    
+    
+    /**
+     * Create log entry for an activity or user's private custom activity using units in the unit system which 
+     * corresponds to the Accept-Language header provided (or using optional custom distanceUnit) and get a response 
+     * in the format requested.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:log-activity}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param unitSystem optional unit system
+     * @param locale optional locale
+     * @param activityId optional/required Activity id; id of the activity, directory activity or intensity level activity; if you pass directory activity id Fitbit will calculate and substitute it with the intensity level activity id, based on distance/duration
+     * @param activityName optional/required Custom activity name; either activityId or activityName should be provided
+     * @param manualCalories optional/required Manual calories; amount of calories defined manually; required with activityName parameter, otherwise optional
+     * @param startTime required Start time; hours and minutes in the format HH:mm
+     * @param durationMillis required Duration; in milliseconds
+     * @param date required Log entry date; in the format yyyy-MM-dd
+     * @param distance optional/required Distance; required for logging directory activity; in the format X.XX, in the selected distanceUnit or in the unit system that corresponds to the Accept-Language header provided
+     * @param distanceUnit optional Distance measurement unit; steps units are available only for "Walking" and "Running" directory activities and their intensity levels
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return new weight log entry
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/activities.{response_format}", 
+              method = HttpMethod.POST, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String logActivity(@RestHeaderParam("Accept-Language") @Optional @Default("US") UnitSystem unitSystem,
+            @RestHeaderParam("Accept-Locale") @Optional @Default("en_US") String locale,
+            @RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
+            @RestPostParam("activityId") @Optional String activityId,
+            @RestPostParam("activityName") @Optional String activityName,
+            @RestPostParam("manualCalories") @Optional String manualCalories,
+            @RestPostParam("startTime") String startTime,
+            @RestPostParam("durationMillis") String durationMillis,
+            @RestPostParam("distance") @Optional String distance,
+            @RestPostParam("distanceUnit") @Optional String distanceUnit,
+            @RestPostParam("date") String date) throws IOException;    
+    
+    /**
+     * Delete user's activity log entry with the given id.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:delete-activity-log}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param activityLogId The id of the log entry.
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return 204 if successful
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/activities/{activity_log_id}.{response_format}", 
+              method = HttpMethod.DELETE, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String deleteActivityLog(@RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
+            @RestUriParam("activity_log_id") String activityLogId) throws IOException;    
+    
+////////////////////////////////////////////    
+//TODO : logFood - 
+////////////////////////////////////////////
+    
+    /**
+     * Create log entry for a water using units in the unit system that corresponds to the 
+     * Accept-Language header provided (or custom water measurement unit) and get a response in the format requested.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:log-water}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param unitSystem optional unit system
+     * @param amount required Amount consumed; in the format X.X, in the selected waterUnit or in the unit system that corresponds to the Accept-Language header provided
+     * @param date required Measurement date; in the format yyyy-MM-dd
+     * @param unit optional Water measurement unit; ("ml", "fl oz" or "cup") 
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return new water log entry
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/foods/log/water.{response_format}", 
+              method = HttpMethod.POST, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String logWater(@RestHeaderParam("Accept-Language") @Optional @Default("US") UnitSystem unitSystem,
+            @RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
+            @RestPostParam("amount") String amount,
+            @RestPostParam("date") String date,
+            @RestPostParam("unit") @Optional WaterUnit unit) throws IOException;    
+    
+    /**
+     * Delete user's food log entry with the given id.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:delete-food-log}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param foodLogId The id of the log entry.
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return 204 if successful
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/foods/{food_log_id}.{response_format}", 
+              method = HttpMethod.DELETE, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String deleteFoodLog(@RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
+            @RestUriParam("food_log_id") String foodLogId) throws IOException;    
+    
+    /**
+     * Delete user's water log entry with the given id.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:delete-water-log}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param waterLogId The id of the log entry.
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return 204 if successful
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/foods/log/water/{water_log_id}.{response_format}", 
+              method = HttpMethod.DELETE, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String deleteWaterLog(@RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
+            @RestUriParam("water_log_id") String waterLogId) throws IOException;    
+
+    /**
+     * Create log entry for a sleep and get a response in the format requested. Have in mind that it is not 
+     * possible to create overlapping log entries as well as entries for time periods, which have no associated 
+     * data from tracker device. Sleep log entry appears in the website's sleep tracker interface according to 
+     * its end date.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:log-sleep}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param startTime required Start time; hours and minutes in the format HH:mm
+     * @param date required Measurement date; in the format yyyy-MM-dd
+     * @param duration required Duration; in milliseconds 
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return new sleep log entry
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/sleep.{response_format}", 
+              method = HttpMethod.POST, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String logSleep(@RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
+            @RestPostParam("startTime") String startTime,
+            @RestPostParam("date") String date,
+            @RestPostParam("duration") String duration) throws IOException;    
+
+    /**
+     * Delete user's sleep log entry with the given id.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:delete-sleep-log}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param sleepLogId The id of the log entry.
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return 204 if successful
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/sleep/{sleep_log_id}.{response_format}", 
+              method = HttpMethod.DELETE, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String deleteSleepLog(@RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
+            @RestUriParam("sleep_log_id") String sleepLogId) throws IOException;        
+    
+    /**
+     * Create log entry for a heart rate measurement and get a response in the format requested.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:log-heart-rate}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param tracker optional Heart rate tracker name; predefined or custom tracker name (matches tracker name on the website). Note, if there is no tracker with the name provided, it will be created before logging the measurement.
+     * @param heartRate required Heart rate measurement
+     * @param date required Measurement date; in the format yyyy-MM-dd
+     * @param time optional Time of the measurement; hours and minutes in the format HH:mm     
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return new heart rate log entry
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/heart.{response_format}", 
+              method = HttpMethod.POST, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String logHeartRate(@RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
+            @RestPostParam("tracker") @Optional String tracker,
+            @RestPostParam("time") @Optional String time,
+            @RestPostParam("date") String date,
+            @RestPostParam("heartRate") String heartRate) throws IOException;    
+    
+    /**
+     * Delete user's heart rate log entry with the given id.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:delete-heart-rate-log}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param heartLogId The id of the log entry.
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return 204 if successful
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/heart/{heart_log_id}.{response_format}", 
+              method = HttpMethod.DELETE, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String deleteHeartRateLog(@RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
+            @RestUriParam("heart_log_id") String heartLogId) throws IOException;        
+    
+    
+    /**
+     * Create log entry for a blood pressure measurement and get a response in the format requested.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:log-blood-pressure}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param systolic required Systolic measurement
+     * @param diastolic required Diastolic measurement
+     * @param date required Measurement date; in the format yyyy-MM-dd
+     * @param time optional Time of the measurement; hours and minutes in the format HH:mm     
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return new blood pressure log entry
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/bp.{response_format}", 
+              method = HttpMethod.POST, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String logBloodPressure(@RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
+            @RestPostParam("systolic") String systolic,
+            @RestPostParam("diastolic") String diastolic,
+            @RestPostParam("time") @Optional String time,
+            @RestPostParam("date") String date) throws IOException;    
+
+    /**
+     * Delete user's blood pressure log entry with the given id.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:delete-blood-pressure-log}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param bpLogId The id of the log entry.
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return 204 if successful
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/bp/{bp_log_id}.{response_format}", 
+              method = HttpMethod.DELETE, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String deleteBloodPressureLog(@RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
+            @RestUriParam("bp_log_id") String bpLogId) throws IOException;        
+    
+    
+    /**
+     * Create log entry for a blood glucose measurement and/or HbA1c using units in the 
+     * unit system which corresponds to the Accept-Language header provided and get a response in the format requested.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:log-blood-glucose}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param hba1c optional/required HbA1c measurement; in the format X.X, either hba1c or tracker should be provided (or both)
+     * @param tracker optional/required Glucose tracker name; predefined or custom tracker name (matches tracker name on the website, e.g. "Afternoon")
+     * @param glucose optional/required Glucose measurement; in the format X.X, required with tracker parameter, otherwise optional
+     * @param date required Measurement date; in the format yyyy-MM-dd
+     * @param time optional Time of the measurement; hours and minutes in the format HH:mm     
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return new blood glucose log entry
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/glucose.{response_format}", 
+              method = HttpMethod.POST, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String logBloodGlucose(@RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
+            @RestPostParam("hba1c") @Optional String hba1c,
+            @RestPostParam("tracker") @Optional String tracker,
+            @RestPostParam("glucose") @Optional String glucose,
+            @RestPostParam("time") @Optional String time,
+            @RestPostParam("date") String date) throws IOException;    
+  
+    //======== Retrieving Statistical Data =========================
+
+    /**
+     * Get time series in the specified range for a given resource in the format requested using 
+     * units in the unit system which corresponds to the Accept-Language header provided.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:get-time-series}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param userId User's encoded id or "-" (dash) to indicate user currently authenticated via the token credentials provided.
+     * @param resourcePath The resource path, e.g., /body/weight. See https://wiki.fitbit.com/display/API/API-Get-Time-Series
+     * @param responseFormat one of JSON or XML
+     * @param date The date in the format yyyy-MM-dd or today.
+     * @param period The date range period. One of 1d, 7d, 30d, 1w, 1m, 3m, 6m, 1y, max or the range end date in yyy-MM-dd format when date range is provided. 
+     * @param unitSystem optional unit system
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return requested time series
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/{user_id}/{resource_path}/date/{date}/{period}.{response_format}", 
+              method = HttpMethod.GET, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String getTimeSeries(@RestHeaderParam("Accept-Language") @Optional @Default("US") UnitSystem unitSystem,
+            @RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("user_id") @Optional @Default("-") String userId,
+            @RestUriParam("resource_path") String resourcePath,
+            @RestUriParam("date") String date,        
+            @RestUriParam("period") String period,        
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat) throws IOException;   
+    
+    /**
+     * Get user's activity statistics in the format requested using units in the unit system which corresponds to the 
+     * Accept-Language header provided. Activity statistics includes Lifetime and Best achievement values from the 
+     * My Achievements tile on the website dashboard. Response contains both statistics from the tracker device and total 
+     * numbers including tracker data and manual activity log entries as seen on the Fitbit website dashboard. 
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:get-activity-stats}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param userId User's encoded id or "-" (dash) to indicate user currently authenticated via the token credentials provided.
+     * @param responseFormat one of JSON or XML
+     * @param unitSystem optional unit system
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return user's activity stats
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/{user_id}/activities.{response_format}", 
+              method = HttpMethod.GET, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String getActivityStats(@RestHeaderParam("Accept-Language") @Optional @Default("US") UnitSystem unitSystem,
+            @RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("user_id") @Optional @Default("-") String userId,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat) throws IOException;   
+
+    //======== Collection Metadata =========================
+
+    /**
+     * Get a list of a user's recent activities in the format requested using units in the unit system which corresponds 
+     * to the Accept-Language header provided. A recent activity record contains the distance and duration values recorded 
+     * the last time the activity was logged. The record retrieved can therefore be used to log the activity via the 
+     * Log Activity with the same or adjusted values for distance and duration.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:get-recent-activities}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param unitSystem optional unit system
+     *
+     * @throws IOException if not successful
+     * 
+     * @return user's activity stats
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/activities/recent.{response_format}", 
+              method = HttpMethod.GET, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String getRecentActivities(@RestHeaderParam("Accept-Language") @Optional @Default("US") UnitSystem unitSystem,
+            @RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat) throws IOException;   
+    
+    /**
+     * Get a list of a user's frequent activities in the format requested using units in the unit system which corresponds 
+     * to the Accept-Language header provided. A frequent activity record contains the distance and duration values recorded 
+     * the last time the activity was logged. The record retrieved can therefore be used to log the activity via the 
+     * Log Activity with the same or adjusted values for distance and duration.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:get-frequent-activities}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param unitSystem optional unit system
+     *
+     * @throws IOException if not successful
+     * 
+     * @return user's activity stats
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/activities/frequent.{response_format}", 
+              method = HttpMethod.GET, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String getFrequentActivities(@RestHeaderParam("Accept-Language") @Optional @Default("US") UnitSystem unitSystem,
+            @RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat) throws IOException;   
+
+    /**
+     * Get a list of a user's favorite activities in the format requested. A user marks an activity as favorite on the 
+     * user's Activities Tab. The activity ids in the list can be used to create a new activity log entry via the Log Activity.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:get-favorite-activities}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param unitSystem optional unit system
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return user's activity stats
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/activities/favorite.{response_format}", 
+              method = HttpMethod.GET, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String getFavoriteActivities(@RestHeaderParam("Accept-Language") @Optional @Default("US") UnitSystem unitSystem,
+            @RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat) throws IOException;   
+
+    /**
+     * Delete the activity with the given id from user's list of favorite activities.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:delete-favorite-activity}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param activityId The id of the log entry.
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return 204 if successful
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/activities/favorite/{activity_id}.{response_format}", 
+              method = HttpMethod.DELETE, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String deleteFavoriteActivity(@RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
+            @RestUriParam("activity_id") String activityId) throws IOException;  
+    
+    /**
+     * Adds the activity with the given id to user's list of favorite activities. 
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:add-favorite-activity}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param activityId The id of the log entry.
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return ???
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/activities/favorite/{activity_id}.{response_format}", 
+              method = HttpMethod.POST, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String addFavoriteActivity(@RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
+            @RestUriParam("activity_id") String activityId) throws IOException;  
+
+    /**
+     * Get a list of a user's recent foods in the format requested. A recent food provides a quick way to log the food via the Log Food endpoint.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:get-recent-foods}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param unitSystem optional unit system
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return user's recent foods
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/food/log/recent.{response_format}", 
+              method = HttpMethod.GET, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String getRecentFoods(@RestHeaderParam("Accept-Language") @Optional @Default("US") UnitSystem unitSystem,
+            @RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat) throws IOException;   
+ 
+    /**
+     * Get a list of a user's frequent foods in the format requested. A frequent food in the list provides a quick way to log the food via the Log Food endpoint.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:get-frequent-foods}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param unitSystem optional unit system
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return user's food stats
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/foods/log/frequent.{response_format}", 
+              method = HttpMethod.GET, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String getFrequentFoods(@RestHeaderParam("Accept-Language") @Optional @Default("US") UnitSystem unitSystem,
+            @RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat) throws IOException;   
+
+    /**
+     * Get a list of a user's favorite foods in the format requested. User marks a food as favorite on the Food Log tab on the website. 
+     * A favorite food in the list provides a quick way to log the food via the Log Food endpoint.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:get-favorite-foods}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param unitSystem optional unit system
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return user's food stats
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/foods/log/favorite.{response_format}", 
+              method = HttpMethod.GET, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String getFavoriteFoods(@RestHeaderParam("Accept-Language") @Optional @Default("US") UnitSystem unitSystem,
+            @RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat) throws IOException;   
+
+    /**
+     * Delete the food with the given id from user's list of favorite foods.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:delete-favorite-food}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param foodId The id of the log entry.
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return 204 if successful
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/foods/log/favorite/{food_id}.{response_format}", 
+              method = HttpMethod.DELETE, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String deleteFavoriteFood(@RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
+            @RestUriParam("food_id") String foodId) throws IOException;  
+
+    /**
+     * Add the food with the given id to user's list of favorite foods. 
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:add-favorite-food}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param foodId The id of the log entry.
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return ???
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/foods/log/favorite/{food_id}.{response_format}", 
+              method = HttpMethod.POST, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String addFavoriteFood(@RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
+            @RestUriParam("food_id") String foodId) throws IOException;  
+
+    /**
+     * Get a list of meals user created in his food log in the format requested. User creates and manages his meals 
+     * on the Food Log tab on the website. Meals in the list provide a quick way to log several foods at a time via 
+     * the calls to Log Food endpoint.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:get-meals}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param unitSystem optional unit system
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return list of meals
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/meals.{response_format}", 
+              method = HttpMethod.GET, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String getMeals(@RestHeaderParam("Accept-Language") @Optional @Default("US") UnitSystem unitSystem,
+            @RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat) throws IOException;  
+    
+////////////////////////////////////////////
+//TODO : createFood - 
+////////////////////////////////////////////    
+
+    //======== User Social Resources =========================
+    
+    /**
+     * Get user's friends in the format requested using units in the unit system which corresponds to the Accept-Language header provided.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:get-friends}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param userId the ID of the Fitbit user or "-" (dash) to indicate user currently authenticated via the token credentials provided.
+     * @param unitSystem optional unit system
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return list of friends
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/friends.{response_format}", 
+              method = HttpMethod.GET, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String getFriends(@RestHeaderParam("Accept-Language") @Optional @Default("US") UnitSystem unitSystem,
+            @RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
+            @RestUriParam("user_id") @Optional @Default("-") String userId) throws IOException;  
+    
+    /**
+     * Get a leaderboard of user's friends progress in the format requested using units in the unit system 
+     * which corresponds to the Accept-Language header provided. Authorized user himself is also included in the response.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:get-friends-leaderboard}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param period The date range period. One of 7d or 30d
+     * @param unitSystem optional unit system
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return leaderboard of friends
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/friends/leaders/{period}.{response_format}", 
+              method = HttpMethod.GET, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String getFriendsLeaderboard(@RestHeaderParam("Accept-Language") @Optional @Default("US") UnitSystem unitSystem,
+            @RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
+            @RestUriParam("period") String period) throws IOException;  
+
+    
+    /**
+     * Retrieve the list of invites to become freinds for a user in the format requested.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:get-invites}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param unitSystem optional unit system
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return list of invites
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/friends/invitations.{response_format}", 
+              method = HttpMethod.GET, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String getInvites(@RestHeaderParam("Accept-Language") @Optional @Default("US") UnitSystem unitSystem,
+            @RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat) throws IOException;  
+    
+    /**
+     * Accept or reject an invite to become friends with inviting user. 
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:accept-invite}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param fromUserId User's encoded id to indicate user to accept or reject invite from.
+     * @param accept Accept or reject an invite; (true or false) 
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return ???
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/friends/invitations/{from_user_id}.{response_format}", 
+              method = HttpMethod.POST, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String acceptInvite(@RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
+            @RestUriParam("from_user_id") String fromUserId,
+            @RestPostParam("accept") @Optional @Default("true") boolean accept) throws IOException;  
+
+    /**
+     * Get user's badges in the format requested. Response includes all badges for the user as seen on the 
+     * Fitbit website badge locker (both activity and weight related). We return weight and distance badges 
+     * based on the user's unit profile preference as on the website.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:get-badges}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param userId the ID of the Fitbit user or "-" (dash) to indicate user currently authenticated via the token credentials provided.
+     * @param unitSystem optional unit system
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return list of badges
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/{user_id}/badges.{response_format}", 
+              method = HttpMethod.GET, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String getBadges(@RestHeaderParam("Accept-Language") @Optional @Default("US") UnitSystem unitSystem,
+            @RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
+            @RestUriParam("user_id") @Optional @Default("-") String userId) throws IOException;  
+    
+  
+    //======== User Device Data =========================
+    
+    /**
+     * Retrieve the list of Fitbit devices for a user in the format requested.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:get-devices}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return list of invites
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/user/-/devices.{response_format}", 
+              method = HttpMethod.GET, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String getDevices(@RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat) throws IOException;  
+        
+    //======== General Resources =========================
+    
+    /**
+     * Retrieve the list of Fitbit devices for a user in the format requested.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:browse-activities}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return list of activities
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/activities.{response_format}", 
+              method = HttpMethod.GET, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String browseActivities(@RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat) throws IOException;  
+        
+    /**
+     * Get the details of a specific activity in Fitbit activities database in the 
+     * format requested. If activity has levels, also get a list of activity level details.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:get-activity}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param activityId The activity Id
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return activity
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/activities/{activity_id}.{response_format}", 
+              method = HttpMethod.GET, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String getActivity(@RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
+            @RestUriParam("activity_id") String activityId) throws IOException;  
+    
+    /**
+     * Given a search query, get a list of public foods from Fitbit foods database and private foods 
+     * the user created in the format requested.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:search-foods}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param query The search query, URL-encoded.
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return list of foods
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/foods/search.{response_format}", 
+              method = HttpMethod.GET, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String searchFoods(@RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
+            @RestQueryParam("query") String query) throws IOException;  
+    
+    /**
+     * Get the details of a specific food in Fitbit Food database (or private food for the user) in the format 
+     * requested. Note, that nutritional values currently included in response only for the PRIVATE or SHARED foods.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:get-food}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * @param foodId The foodId
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return food details
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/foods/{food_id}.{response_format}", 
+              method = HttpMethod.GET, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String getFood(@RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat,
+            @RestUriParam("food_id") String foodId) throws IOException;  
+
+    /**
+     * Get a list of all valid Fitbit food units in the format requested.
+     *
+     * {@sample.xml ../../../doc/Fitbit-connector.xml.sample fitbit:get-food-units}
+     * 
+     * @param apiVersion optional version of the Fitbit API
+     * @param responseFormat one of JSON or XML
+     * 
+     * @throws IOException if not successful
+     * 
+     * @return food details
+     */
+    @Processor
+    @OAuthProtected
+    @RestCall(uri = "http://{server}:{port}/{api_version}/foods/units.{response_format}", 
+              method = HttpMethod.GET, 
+              exceptions={@RestExceptionOn(expression="#[message.inboundProperties['http.status'] > 206]")})
+    public abstract String getFoodUnits(@RestUriParam("api_version") @Optional @Default("1") String apiVersion,
+            @RestUriParam("response_format") @Optional @Default("JSON") ResponseFormat responseFormat) throws IOException;  
+
     //============================================================
     
     public int getApiVersion() {
@@ -401,6 +1581,27 @@ public abstract class FitbitModule
         @Override 
         public String toString() {
             return gender;
+        }
+    }
+
+    public enum WaterUnit {
+        ML ("ml"), 
+        FL_OZ ("fl oz"),
+        CUP ("cup");
+        
+        private final String waterUnit;
+        
+        WaterUnit(String waterUnit) {
+            this.waterUnit = waterUnit;
+        }
+
+        public String getWaterUnit() {
+            return waterUnit;
+        }
+        
+        @Override 
+        public String toString() {
+            return waterUnit;
         }
     }
 

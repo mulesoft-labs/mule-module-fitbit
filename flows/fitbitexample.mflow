@@ -25,7 +25,7 @@
             </property-collection>
         </properties>
     </global-element>
-    <flow SubFlow="false" name="FitbitExampleFlow1" entity-id="474b42a1-42a4-4af4-8c55-041619f16655">
+    <flow SubFlow="false" name="FitbitExampleFlow1" entity-id="27ed48f0-3b00-438d-828a-a96cf0a82741">
         <properties>
             <property name="processingStrategy2"/>
             <property name="processingStrategy"/>
@@ -103,7 +103,7 @@
                     <property name="apiVersion"/>
                     <property value="2012-09-21" name="date"/>
                     <property value="-" name="userId"/>
-                    <property value="XML" name="responseFormat"/>
+                    <property value="JSON" name="responseFormat"/>
                     <property value="6" name="auxiliary;index"/>
                     <property value="6" name="auxiliary;index"/>
                     <property value="6" name="auxiliary;index"/>

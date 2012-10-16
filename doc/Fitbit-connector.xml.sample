@@ -25,3 +25,141 @@
 <!-- BEGIN_INCLUDE(fitbit:get-foods) -->
     <fitbit:get-foods userId="1234567" date="2012-12-21" />
 <!-- END_INCLUDE(fitbit:get-foods) -->
+<!-- BEGIN_INCLUDE(fitbit:get-water) -->
+    <fitbit:get-water userId="1234567" date="2012-12-21" />
+<!-- END_INCLUDE(fitbit:get-water) -->
+<!-- BEGIN_INCLUDE(fitbit:get-sleep) -->
+    <fitbit:get-sleep userId="1234567" date="2012-12-21" />
+<!-- END_INCLUDE(fitbit:get-sleep) -->
+<!-- BEGIN_INCLUDE(fitbit:get-heart-rate) -->
+    <fitbit:get-heart-rate date="2012-12-21" />
+<!-- END_INCLUDE(fitbit:get-heart-rate) -->
+<!-- BEGIN_INCLUDE(fitbit:get-blood-pressure) -->
+    <fitbit:get-blood-pressure date="2012-12-21" />
+<!-- END_INCLUDE(fitbit:get-blood-pressure) -->
+<!-- BEGIN_INCLUDE(fitbit:get-glucose) -->
+    <fitbit:get-glucose date="2012-12-21" />
+<!-- END_INCLUDE(fitbit:get-glucose) -->
+<!-- BEGIN_INCLUDE(fitbit:log-body-measurements) -->
+    <fitbit:log-body-measurements date="2012-12-21" weight="120.00"/>
+<!-- END_INCLUDE(fitbit:log-body-measurements) -->
+<!-- BEGIN_INCLUDE(fitbit:log-body-weight) -->
+    <fitbit:log-body-weight date="2012-12-21" weight="120.00"/>
+<!-- END_INCLUDE(fitbit:log-body-weight) -->
+<!-- BEGIN_INCLUDE(fitbit:log-body-fat) -->
+    <fitbit:log-body-fat date="2012-12-21" fat="1.00"/>
+<!-- END_INCLUDE(fitbit:log-body-fat) -->
+<!-- BEGIN_INCLUDE(fitbit:delete-body-weight-log) -->
+    <fitbit:delete-body-weight-log bodyWeightLogId="123456"/>
+<!-- END_INCLUDE(fitbit:delete-body-weight-log) -->
+<!-- BEGIN_INCLUDE(fitbit:delete-body-fat-log) -->
+    <fitbit:delete-body-fat-log bodyFatLogId="123456"/>
+<!-- END_INCLUDE(fitbit:delete-body-fat-log) -->
+<!-- BEGIN_INCLUDE(fitbit:log-activity) -->
+    <fitbit:log-activity activityName="UsingMule" date="2012-09-24" startTime="09:17" durationMillis="1000000000"/>
+<!-- END_INCLUDE(fitbit:log-activity) -->
+<!-- BEGIN_INCLUDE(fitbit:delete-activity-log) -->
+    <fitbit:delete-activity-log activityLogId="123456"/>
+<!-- END_INCLUDE(fitbit:delete-activity-log) -->
+<!-- BEGIN_INCLUDE(fitbit:log-water) -->
+    <fitbit:log-water date="2012-12-21" amount="1.00"/>
+<!-- END_INCLUDE(fitbit:log-water) -->
+<!-- BEGIN_INCLUDE(fitbit:delete-food-log) -->
+    <fitbit:delete-food-log foodLogId="123456"/>
+<!-- END_INCLUDE(fitbit:delete-food-log) -->
+<!-- BEGIN_INCLUDE(fitbit:delete-water-log) -->
+    <fitbit:delete-water-log waterLogId="123456"/>
+<!-- END_INCLUDE(fitbit:delete-water-log) -->
+<!-- BEGIN_INCLUDE(fitbit:log-sleep) -->
+    <fitbit:log-sleep date="2012-09-24" startTime="09:17" duration="1000000000"/>
+<!-- END_INCLUDE(fitbit:log-sleep) -->
+<!-- BEGIN_INCLUDE(fitbit:delete-sleep-log) -->
+    <fitbit:delete-sleep-log sleepLogId="123456"/>
+<!-- END_INCLUDE(fitbit:delete-sleep-log) -->
+<!-- BEGIN_INCLUDE(fitbit:log-heart-rate) -->
+    <fitbit:log-heart-rate date="2012-09-24" heartRate="120"/>
+<!-- END_INCLUDE(fitbit:log-heart-rate) -->
+<!-- BEGIN_INCLUDE(fitbit:delete-heart-rate-log) -->
+    <fitbit:delete-heart-rate-log heartLogId="123456"/>
+<!-- END_INCLUDE(fitbit:delete-heart-rate-log) -->
+<!-- BEGIN_INCLUDE(fitbit:log-blood-pressure) -->
+    <fitbit:log-blood-pressure date="2012-09-24" systolic="120" diastolic="80"/>
+<!-- END_INCLUDE(fitbit:log-blood-pressure) -->
+<!-- BEGIN_INCLUDE(fitbit:delete-blood-pressure-log) -->
+    <fitbit:delete-blood-pressure-log bpLogId="123456"/>
+<!-- END_INCLUDE(fitbit:delete-blood-pressure-log) -->
+<!-- BEGIN_INCLUDE(fitbit:log-blood-glucose) -->
+    <fitbit:log-blood-glucose date="2012-09-24" tracker="Afternoon" glucose="1.0"/>
+<!-- END_INCLUDE(fitbit:log-blood-glucose) -->
+<!-- BEGIN_INCLUDE(fitbit:get-time-series) -->
+    <fitbit:get-time-series date="2012-10-09" period="1y" resourcePath="activities/tracker/elevation"/>
+<!-- END_INCLUDE(fitbit:get-time-series) -->
+<!-- BEGIN_INCLUDE(fitbit:get-activity-stats) -->
+    <fitbit:get-activity-stats />
+<!-- END_INCLUDE(fitbit:get-activity-stats) -->
+<!-- BEGIN_INCLUDE(fitbit:get-recent-activities) -->
+    <fitbit:get-recent-activities />
+<!-- END_INCLUDE(fitbit:get-recent-activities) -->
+<!-- BEGIN_INCLUDE(fitbit:get-favorite-activities) -->
+    <fitbit:get-favorite-activities />
+<!-- END_INCLUDE(fitbit:get-favorite-activities) -->
+<!-- BEGIN_INCLUDE(fitbit:get-frequent-activities) -->
+    <fitbit:get-frequent-activities />
+<!-- END_INCLUDE(fitbit:get-frequent-activities) -->
+<!-- BEGIN_INCLUDE(fitbit:delete-favorite-activity) -->
+    <fitbit:delete-favorite-activity activityId="12345" />
+<!-- END_INCLUDE(fitbit:delete-favorite-activity) -->
+<!-- BEGIN_INCLUDE(fitbit:add-favorite-activity) -->
+    <fitbit:add-favorite-activity activityId="12345"/>
+<!-- END_INCLUDE(fitbit:add-favorite-activity) -->
+<!-- BEGIN_INCLUDE(fitbit:get-recent-foods) -->
+    <fitbit:get-recent-foods />
+<!-- END_INCLUDE(fitbit:get-recent-foods) -->
+<!-- BEGIN_INCLUDE(fitbit:get-favorite-foods) -->
+    <fitbit:get-favorite-foods />
+<!-- END_INCLUDE(fitbit:get-favorite-foods) -->
+<!-- BEGIN_INCLUDE(fitbit:get-frequent-foods) -->
+    <fitbit:get-frequent-foods />
+<!-- END_INCLUDE(fitbit:get-frequent-foods) -->
+<!-- BEGIN_INCLUDE(fitbit:delete-favorite-food) -->
+    <fitbit:delete-favorite-food foodId="12345" />
+<!-- END_INCLUDE(fitbit:delete-favorite-food) -->
+<!-- BEGIN_INCLUDE(fitbit:add-favorite-food) -->
+    <fitbit:add-favorite-food foodId="12345"/>
+<!-- END_INCLUDE(fitbit:add-favorite-food) -->
+<!-- BEGIN_INCLUDE(fitbit:get-meals) -->
+    <fitbit:get-meals />
+<!-- END_INCLUDE(fitbit:get-meals) -->
+<!-- BEGIN_INCLUDE(fitbit:get-friends) -->
+    <fitbit:get-friends userId="123" />
+<!-- END_INCLUDE(fitbit:get-friends) -->
+<!-- BEGIN_INCLUDE(fitbit:get-friends-leaderboard) -->
+    <fitbit:get-friends-leaderboard period="7d" />
+<!-- END_INCLUDE(fitbit:get-friends-leaderboard) -->
+<!-- BEGIN_INCLUDE(fitbit:get-invites) -->
+    <fitbit:get-invites />
+<!-- END_INCLUDE(fitbit:get-invites) -->
+<!-- BEGIN_INCLUDE(fitbit:accept-invite) -->
+    <fitbit:accept-invite fromUserId="1234" />
+<!-- END_INCLUDE(fitbit:accept-invite) -->
+<!-- BEGIN_INCLUDE(fitbit:get-badges) -->
+    <fitbit:get-badges />
+<!-- END_INCLUDE(fitbit:get-badges) -->
+<!-- BEGIN_INCLUDE(fitbit:get-devices) -->
+    <fitbit:get-devices />
+<!-- END_INCLUDE(fitbit:get-devices) -->
+<!-- BEGIN_INCLUDE(fitbit:browse-activities) -->
+    <fitbit:browse-activities />
+<!-- END_INCLUDE(fitbit:browse-activities) -->
+<!-- BEGIN_INCLUDE(fitbit:get-activity) -->
+    <fitbit:get-activity activityId="1234"/>
+<!-- END_INCLUDE(fitbit:get-activity) -->
+<!-- BEGIN_INCLUDE(fitbit:search-foods) -->
+    <fitbit:search-foods query="wheat%20pasta"/>
+<!-- END_INCLUDE(fitbit:search-foods) -->
+<!-- BEGIN_INCLUDE(fitbit:get-food) -->
+    <fitbit:get-food foodId="1234"/>
+<!-- END_INCLUDE(fitbit:get-food) -->
+<!-- BEGIN_INCLUDE(fitbit:get-food-units) -->
+    <fitbit:get-food-units/>
+<!-- END_INCLUDE(fitbit:get-food-units) -->
