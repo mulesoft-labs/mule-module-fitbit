@@ -270,4 +270,13 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
+    <scm>
+     <connection>
+          scm:git:git://github.com:mulesoft-services/mule-module-fitbit.git
+      </connection>
+     <developerConnection>
+          scm:git:git@github.com:mulesoft-services/mule-module-fitbit.git
+      </developerConnection>
+     <url>http://github.com/mulesoft-services/mule-module-fitbit</url>
+    </scm>
 </project>
