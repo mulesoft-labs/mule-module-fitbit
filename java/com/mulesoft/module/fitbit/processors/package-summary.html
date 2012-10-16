@@ -1,0 +1,631 @@
+
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="description" content="Documentation for Fitbit Mule Connector." />
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../../favicon.ico" />
+<title>
+
+  com.mulesoft.module.fitbit.processors
+
+
+| Fitbit Mule Connector
+
+</title>
+<link href="../../../../../../assets/mule-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../../assets/mule-developer-prettify.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../../assets/customizations.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
+<script src="../../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../../assets/jquery-toc.js" type="text/javascript"></script>
+<script src="../../../../../../assets/mule-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../../../", "../../../../../../assets/");
+</script>
+<script src="../../../../../../assets/mule-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../../../assets/navtree_data.js" type="text/javascript"></script>
+<script src="../../../../../../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+<script type="text/javascript" charset="utf-8">
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  var feedback_widget_options = {};
+
+  feedback_widget_options.display = "overlay";
+  feedback_widget_options.company = "mulesoft";
+  feedback_widget_options.placement = "right";
+  feedback_widget_options.color = "#2F74AE";
+  feedback_widget_options.style = "question";
+
+  feedback_widget_options.tag = "Fitbit Mule Connector";
+
+  feedback_widget_options.limit = "3";
+
+  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+</script>
+</head>
+
+<body class="">
+
+<div id="header">
+    <div id="headerLeft">
+    
+      <span id="masthead-title">Fitbit Mule Connector</span>
+    
+    <ul id="header-tabs" class="java">
+    
+    	<li id="guide"><a href="../../../../../../guide/install.html">
+	    	<span class="en">Install Guide</span>
+    	</a></li>
+    
+    	<li id="java"><a href="../../../../../../java/packages.html">
+	    	<span class="en">Java API Reference</span>
+    	</a></li>
+    
+    	<li id="mule"><a href="../../../../../../mule/modules.html">
+	    	<span class="en">Mule API Reference</span>
+    	</a></li>
+    
+    </ul>
+    </div>
+    <div id="headerRight">
+      <a href="http://www.mulesoft.com" tabindex="-1">
+      <img src="../../../../../../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
+      
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      
+    </div>
+</div><!-- header -->
+
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links">
+                <a href="../../../../../../java/packages.html"  >Package Index</a> |
+                <a href="../../../../../../java/classes.html" >Class Index</a>
+              </div>
+              <ul>
+                
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/mulesoft/module/fitbit/package-summary.html">com.mulesoft.module.fitbit</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/mulesoft/module/fitbit/adapters/package-summary.html">com.mulesoft.module.fitbit.adapters</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/mulesoft/module/fitbit/agents/package-summary.html">com.mulesoft.module.fitbit.agents</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/mulesoft/module/fitbit/config/package-summary.html">com.mulesoft.module.fitbit.config</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/mulesoft/module/fitbit/oauth/package-summary.html">com.mulesoft.module.fitbit.oauth</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/mulesoft/module/fitbit/process/package-summary.html">com.mulesoft.module.fitbit.process</a></li>
+    <li class="selected api apilevel-">
+  <a href="../../../../../../java/com/mulesoft/module/fitbit/processors/package-summary.html">com.mulesoft.module.fitbit.processors</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/mulesoft/module/fitbit/transformers/package-summary.html">com.mulesoft.module.fitbit.transformers</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+              
+    <li><h2>Classes</h2>
+      <ul>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/AbstractExpressionEvaluator.html">AbstractExpressionEvaluator</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/AbstractListeningMessageProcessor.html">AbstractListeningMessageProcessor</a>&lt;O&gt;</li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/AbstractMessageProcessor.html">AbstractMessageProcessor</a>&lt;O&gt;</li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/AcceptInviteMessageProcessor.html">AcceptInviteMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/AddFavoriteActivityMessageProcessor.html">AddFavoriteActivityMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/AddFavoriteFoodMessageProcessor.html">AddFavoriteFoodMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/AuthorizeMessageProcessor.html">AuthorizeMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/BrowseActivitiesMessageProcessor.html">BrowseActivitiesMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/DeleteActivityLogMessageProcessor.html">DeleteActivityLogMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/DeleteBloodPressureLogMessageProcessor.html">DeleteBloodPressureLogMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/DeleteBodyFatLogMessageProcessor.html">DeleteBodyFatLogMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/DeleteBodyWeightLogMessageProcessor.html">DeleteBodyWeightLogMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/DeleteFavoriteActivityMessageProcessor.html">DeleteFavoriteActivityMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/DeleteFavoriteFoodMessageProcessor.html">DeleteFavoriteFoodMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/DeleteFoodLogMessageProcessor.html">DeleteFoodLogMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/DeleteHeartRateLogMessageProcessor.html">DeleteHeartRateLogMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/DeleteSleepLogMessageProcessor.html">DeleteSleepLogMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/DeleteWaterLogMessageProcessor.html">DeleteWaterLogMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetActivitiesMessageProcessor.html">GetActivitiesMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetActivityMessageProcessor.html">GetActivityMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetActivityStatsMessageProcessor.html">GetActivityStatsMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetBadgesMessageProcessor.html">GetBadgesMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetBloodPressureMessageProcessor.html">GetBloodPressureMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetBodyFatMessageProcessor.html">GetBodyFatMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetBodyFatRangeMessageProcessor.html">GetBodyFatRangeMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetBodyMeasurementsMessageProcessor.html">GetBodyMeasurementsMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetBodyWeightMessageProcessor.html">GetBodyWeightMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetBodyWeightRangeMessageProcessor.html">GetBodyWeightRangeMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetDevicesMessageProcessor.html">GetDevicesMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetFavoriteActivitiesMessageProcessor.html">GetFavoriteActivitiesMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetFavoriteFoodsMessageProcessor.html">GetFavoriteFoodsMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetFoodMessageProcessor.html">GetFoodMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetFoodsMessageProcessor.html">GetFoodsMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetFoodUnitsMessageProcessor.html">GetFoodUnitsMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetFrequentActivitiesMessageProcessor.html">GetFrequentActivitiesMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetFrequentFoodsMessageProcessor.html">GetFrequentFoodsMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetFriendsLeaderboardMessageProcessor.html">GetFriendsLeaderboardMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetFriendsMessageProcessor.html">GetFriendsMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetGlucoseMessageProcessor.html">GetGlucoseMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetHeartRateMessageProcessor.html">GetHeartRateMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetInvitesMessageProcessor.html">GetInvitesMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetMealsMessageProcessor.html">GetMealsMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetRecentActivitiesMessageProcessor.html">GetRecentActivitiesMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetRecentFoodsMessageProcessor.html">GetRecentFoodsMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetSleepMessageProcessor.html">GetSleepMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetTimeSeriesMessageProcessor.html">GetTimeSeriesMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetUserInfoMessageProcessor.html">GetUserInfoMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetWaterMessageProcessor.html">GetWaterMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/LogActivityMessageProcessor.html">LogActivityMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/LogBloodGlucoseMessageProcessor.html">LogBloodGlucoseMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/LogBloodPressureMessageProcessor.html">LogBloodPressureMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/LogBodyFatMessageProcessor.html">LogBodyFatMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/LogBodyMeasurementsMessageProcessor.html">LogBodyMeasurementsMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/LogBodyWeightMessageProcessor.html">LogBodyWeightMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/LogHeartRateMessageProcessor.html">LogHeartRateMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/LogSleepMessageProcessor.html">LogSleepMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/LogWaterMessageProcessor.html">LogWaterMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/SearchFoodsMessageProcessor.html">SearchFoodsMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/UnauthorizeMessageProcessor.html">UnauthorizeMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/UpdateUserInfoMessageProcessor.html">UpdateUserInfoMessageProcessor</a></li>
+      </ul>
+    </li>
+              
+              
+              
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links">
+            <a href="../../../../../../packages.html"  >Package Index</a> | 
+            <a href="../../../../../../classes.html" >Class Index</a>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+<div class="api-level">
+  
+
+
+  
+  
+
+</div>
+</div>
+
+<div id="jd-header">
+  package
+  <h1>com.mulesoft.module.fitbit.processors</h1>
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+
+
+
+
+
+
+  
+
+
+  
+    <h2>Classes</h2>
+    <div class="jd-sumtable">
+    
+  <table class="jd-sumtable-expando">
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/AbstractExpressionEvaluator.html">AbstractExpressionEvaluator</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/AbstractListeningMessageProcessor.html">AbstractListeningMessageProcessor</a>&lt;O&gt;</td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/AbstractMessageProcessor.html">AbstractMessageProcessor</a>&lt;O&gt;</td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/AcceptInviteMessageProcessor.html">AcceptInviteMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">AcceptInviteMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#acceptInvite(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String, boolean)">acceptInvite(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String, boolean)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/AddFavoriteActivityMessageProcessor.html">AddFavoriteActivityMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">AddFavoriteActivityMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#addFavoriteActivity(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)">addFavoriteActivity(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/AddFavoriteFoodMessageProcessor.html">AddFavoriteFoodMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">AddFavoriteFoodMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#addFavoriteFood(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)">addFavoriteFood(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/AuthorizeMessageProcessor.html">AuthorizeMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/BrowseActivitiesMessageProcessor.html">BrowseActivitiesMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">BrowseActivitiesMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#browseActivities(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)">browseActivities(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/DeleteActivityLogMessageProcessor.html">DeleteActivityLogMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">DeleteActivityLogMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#deleteActivityLog(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)">deleteActivityLog(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/DeleteBloodPressureLogMessageProcessor.html">DeleteBloodPressureLogMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">DeleteBloodPressureLogMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#deleteBloodPressureLog(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)">deleteBloodPressureLog(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/DeleteBodyFatLogMessageProcessor.html">DeleteBodyFatLogMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">DeleteBodyFatLogMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#deleteBodyFatLog(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)">deleteBodyFatLog(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/DeleteBodyWeightLogMessageProcessor.html">DeleteBodyWeightLogMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">DeleteBodyWeightLogMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#deleteBodyWeightLog(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)">deleteBodyWeightLog(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/DeleteFavoriteActivityMessageProcessor.html">DeleteFavoriteActivityMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">DeleteFavoriteActivityMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#deleteFavoriteActivity(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)">deleteFavoriteActivity(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/DeleteFavoriteFoodMessageProcessor.html">DeleteFavoriteFoodMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">DeleteFavoriteFoodMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#deleteFavoriteFood(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)">deleteFavoriteFood(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/DeleteFoodLogMessageProcessor.html">DeleteFoodLogMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">DeleteFoodLogMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#deleteFoodLog(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)">deleteFoodLog(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/DeleteHeartRateLogMessageProcessor.html">DeleteHeartRateLogMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">DeleteHeartRateLogMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#deleteHeartRateLog(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)">deleteHeartRateLog(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/DeleteSleepLogMessageProcessor.html">DeleteSleepLogMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">DeleteSleepLogMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#deleteSleepLog(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)">deleteSleepLog(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/DeleteWaterLogMessageProcessor.html">DeleteWaterLogMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">DeleteWaterLogMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#deleteWaterLog(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)">deleteWaterLog(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetActivitiesMessageProcessor.html">GetActivitiesMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetActivitiesMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getActivities(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)">getActivities(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetActivityMessageProcessor.html">GetActivityMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetActivityMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getActivity(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)">getActivity(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetActivityStatsMessageProcessor.html">GetActivityStatsMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetActivityStatsMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getActivityStats(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)">getActivityStats(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetBadgesMessageProcessor.html">GetBadgesMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetBadgesMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getBadges(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)">getBadges(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetBloodPressureMessageProcessor.html">GetBloodPressureMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetBloodPressureMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getBloodPressure(java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)">getBloodPressure(java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetBodyFatMessageProcessor.html">GetBodyFatMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetBodyFatMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getBodyFat(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)">getBodyFat(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetBodyFatRangeMessageProcessor.html">GetBodyFatRangeMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetBodyFatRangeMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getBodyFatRange(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)">getBodyFatRange(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetBodyMeasurementsMessageProcessor.html">GetBodyMeasurementsMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetBodyMeasurementsMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getBodyMeasurements(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)">getBodyMeasurements(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetBodyWeightMessageProcessor.html">GetBodyWeightMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetBodyWeightMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getBodyWeight(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)">getBodyWeight(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetBodyWeightRangeMessageProcessor.html">GetBodyWeightRangeMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetBodyWeightRangeMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getBodyWeightRange(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)">getBodyWeightRange(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetDevicesMessageProcessor.html">GetDevicesMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetDevicesMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getDevices(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)">getDevices(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetFavoriteActivitiesMessageProcessor.html">GetFavoriteActivitiesMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetFavoriteActivitiesMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getFavoriteActivities(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)">getFavoriteActivities(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetFavoriteFoodsMessageProcessor.html">GetFavoriteFoodsMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetFavoriteFoodsMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getFavoriteFoods(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)">getFavoriteFoods(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetFoodMessageProcessor.html">GetFoodMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetFoodMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getFood(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)">getFood(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetFoodsMessageProcessor.html">GetFoodsMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetFoodsMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getFoods(java.lang.String, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)">getFoods(java.lang.String, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetFoodUnitsMessageProcessor.html">GetFoodUnitsMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetFoodUnitsMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getFoodUnits(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)">getFoodUnits(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetFrequentActivitiesMessageProcessor.html">GetFrequentActivitiesMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetFrequentActivitiesMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getFrequentActivities(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)">getFrequentActivities(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetFrequentFoodsMessageProcessor.html">GetFrequentFoodsMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetFrequentFoodsMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getFrequentFoods(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)">getFrequentFoods(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetFriendsLeaderboardMessageProcessor.html">GetFriendsLeaderboardMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetFriendsLeaderboardMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getFriendsLeaderboard(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)">getFriendsLeaderboard(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetFriendsMessageProcessor.html">GetFriendsMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetFriendsMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getFriends(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)">getFriends(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetGlucoseMessageProcessor.html">GetGlucoseMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetGlucoseMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getGlucose(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)">getGlucose(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetHeartRateMessageProcessor.html">GetHeartRateMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetHeartRateMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getHeartRate(java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)">getHeartRate(java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetInvitesMessageProcessor.html">GetInvitesMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetInvitesMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getInvites(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)">getInvites(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetMealsMessageProcessor.html">GetMealsMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetMealsMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getMeals(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)">getMeals(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetRecentActivitiesMessageProcessor.html">GetRecentActivitiesMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetRecentActivitiesMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getRecentActivities(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)">getRecentActivities(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetRecentFoodsMessageProcessor.html">GetRecentFoodsMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetRecentFoodsMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getRecentFoods(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)">getRecentFoods(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetSleepMessageProcessor.html">GetSleepMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetSleepMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getSleep(java.lang.String, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)">getSleep(java.lang.String, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetTimeSeriesMessageProcessor.html">GetTimeSeriesMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetTimeSeriesMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getTimeSeries(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)">getTimeSeries(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetUserInfoMessageProcessor.html">GetUserInfoMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetUserInfoMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getUserInfo(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)">getUserInfo(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/GetWaterMessageProcessor.html">GetWaterMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetWaterMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#getWater(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)">getWater(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/LogActivityMessageProcessor.html">LogActivityMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">LogActivityMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#logActivity(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">logActivity(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/LogBloodGlucoseMessageProcessor.html">LogBloodGlucoseMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">LogBloodGlucoseMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#logBloodGlucose(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">logBloodGlucose(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/LogBloodPressureMessageProcessor.html">LogBloodPressureMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">LogBloodPressureMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#logBloodPressure(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">logBloodPressure(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String, java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/LogBodyFatMessageProcessor.html">LogBodyFatMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">LogBodyFatMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#logBodyFat(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String, java.lang.String, java.lang.String)">logBodyFat(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/LogBodyMeasurementsMessageProcessor.html">LogBodyMeasurementsMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">LogBodyMeasurementsMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#logBodyMeasurements(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">logBodyMeasurements(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/LogBodyWeightMessageProcessor.html">LogBodyWeightMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">LogBodyWeightMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#logBodyWeight(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String, java.lang.String, java.lang.String)">logBodyWeight(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/LogHeartRateMessageProcessor.html">LogHeartRateMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">LogHeartRateMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#logHeartRate(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">logHeartRate(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String, java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/LogSleepMessageProcessor.html">LogSleepMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">LogSleepMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#logSleep(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String, java.lang.String, java.lang.String)">logSleep(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/LogWaterMessageProcessor.html">LogWaterMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">LogWaterMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#logWater(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.WaterUnit)">logWater(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.WaterUnit)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/SearchFoodsMessageProcessor.html">SearchFoodsMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">SearchFoodsMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#searchFoods(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)">searchFoods(java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, java.lang.String)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/UnauthorizeMessageProcessor.html">UnauthorizeMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/processors/UpdateUserInfoMessageProcessor.html">UpdateUserInfoMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">UpdateUserInfoMessageProcessor invokes the <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html#updateUserInfo(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, com.mulesoft.module.fitbit.FitbitModule.Gender, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">updateUserInfo(com.mulesoft.module.fitbit.FitbitModule.UnitSystem, java.lang.String, com.mulesoft.module.fitbit.FitbitModule.ResponseFormat, com.mulesoft.module.fitbit.FitbitModule.Gender, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../../java/com/mulesoft/module/fitbit/FitbitModule.html">FitbitModule</a></code>.&nbsp;</td>
+          </tr>
+  </table>
+    </div>
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+<div id="footer">
+Generated by <a href="http://www.mulesoft.com/devkit">Mule DevKit</a>. Document generation technology based on <a href="http://code.google.com/p/doclava/">Google's Doclava</a>.
+</div> <!-- end footer -->
+
+</div><!-- end jd-content -->
+</div><!-- doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize mule-developer-docs.js */
+</script>
+
+</body>
+</html>

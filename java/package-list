@@ -1,0 +1,9 @@
+com.mulesoft.module.fitbit
+com.mulesoft.module.fitbit.adapters
+com.mulesoft.module.fitbit.agents
+com.mulesoft.module.fitbit.config
+com.mulesoft.module.fitbit.oauth
+com.mulesoft.module.fitbit.process
+com.mulesoft.module.fitbit.processors
+com.mulesoft.module.fitbit.transformers
+

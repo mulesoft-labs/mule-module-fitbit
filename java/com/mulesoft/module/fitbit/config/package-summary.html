@@ -1,0 +1,657 @@
+
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="description" content="Documentation for Fitbit Mule Connector." />
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../../favicon.ico" />
+<title>
+
+  com.mulesoft.module.fitbit.config
+
+
+| Fitbit Mule Connector
+
+</title>
+<link href="../../../../../../assets/mule-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../../assets/mule-developer-prettify.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../../assets/customizations.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
+<script src="../../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../../assets/jquery-toc.js" type="text/javascript"></script>
+<script src="../../../../../../assets/mule-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../../../", "../../../../../../assets/");
+</script>
+<script src="../../../../../../assets/mule-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../../../assets/navtree_data.js" type="text/javascript"></script>
+<script src="../../../../../../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+<script type="text/javascript" charset="utf-8">
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  var feedback_widget_options = {};
+
+  feedback_widget_options.display = "overlay";
+  feedback_widget_options.company = "mulesoft";
+  feedback_widget_options.placement = "right";
+  feedback_widget_options.color = "#2F74AE";
+  feedback_widget_options.style = "question";
+
+  feedback_widget_options.tag = "Fitbit Mule Connector";
+
+  feedback_widget_options.limit = "3";
+
+  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+</script>
+</head>
+
+<body class="">
+
+<div id="header">
+    <div id="headerLeft">
+    
+      <span id="masthead-title">Fitbit Mule Connector</span>
+    
+    <ul id="header-tabs" class="java">
+    
+    	<li id="guide"><a href="../../../../../../guide/install.html">
+	    	<span class="en">Install Guide</span>
+    	</a></li>
+    
+    	<li id="java"><a href="../../../../../../java/packages.html">
+	    	<span class="en">Java API Reference</span>
+    	</a></li>
+    
+    	<li id="mule"><a href="../../../../../../mule/modules.html">
+	    	<span class="en">Mule API Reference</span>
+    	</a></li>
+    
+    </ul>
+    </div>
+    <div id="headerRight">
+      <a href="http://www.mulesoft.com" tabindex="-1">
+      <img src="../../../../../../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
+      
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      
+    </div>
+</div><!-- header -->
+
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links">
+                <a href="../../../../../../java/packages.html"  >Package Index</a> |
+                <a href="../../../../../../java/classes.html" >Class Index</a>
+              </div>
+              <ul>
+                
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/mulesoft/module/fitbit/package-summary.html">com.mulesoft.module.fitbit</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/mulesoft/module/fitbit/adapters/package-summary.html">com.mulesoft.module.fitbit.adapters</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/mulesoft/module/fitbit/agents/package-summary.html">com.mulesoft.module.fitbit.agents</a></li>
+    <li class="selected api apilevel-">
+  <a href="../../../../../../java/com/mulesoft/module/fitbit/config/package-summary.html">com.mulesoft.module.fitbit.config</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/mulesoft/module/fitbit/oauth/package-summary.html">com.mulesoft.module.fitbit.oauth</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/mulesoft/module/fitbit/process/package-summary.html">com.mulesoft.module.fitbit.process</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/mulesoft/module/fitbit/processors/package-summary.html">com.mulesoft.module.fitbit.processors</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/com/mulesoft/module/fitbit/transformers/package-summary.html">com.mulesoft.module.fitbit.transformers</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/AbstractDefinitionParser.ParseDelegate.html">AbstractDefinitionParser.ParseDelegate</a>&lt;T&gt;</li>
+      </ul>
+    </li>
+              
+    <li><h2>Classes</h2>
+      <ul>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/AbstractDefinitionParser.html">AbstractDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/AcceptInviteDefinitionParser.html">AcceptInviteDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/AddFavoriteActivityDefinitionParser.html">AddFavoriteActivityDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/AddFavoriteFoodDefinitionParser.html">AddFavoriteFoodDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/AuthorizeDefinitionParser.html">AuthorizeDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/BrowseActivitiesDefinitionParser.html">BrowseActivitiesDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/DeleteActivityLogDefinitionParser.html">DeleteActivityLogDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/DeleteBloodPressureLogDefinitionParser.html">DeleteBloodPressureLogDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/DeleteBodyFatLogDefinitionParser.html">DeleteBodyFatLogDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/DeleteBodyWeightLogDefinitionParser.html">DeleteBodyWeightLogDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/DeleteFavoriteActivityDefinitionParser.html">DeleteFavoriteActivityDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/DeleteFavoriteFoodDefinitionParser.html">DeleteFavoriteFoodDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/DeleteFoodLogDefinitionParser.html">DeleteFoodLogDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/DeleteHeartRateLogDefinitionParser.html">DeleteHeartRateLogDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/DeleteSleepLogDefinitionParser.html">DeleteSleepLogDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/DeleteWaterLogDefinitionParser.html">DeleteWaterLogDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/FitbitModuleConfigDefinitionParser.html">FitbitModuleConfigDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/FitbitNamespaceHandler.html">FitbitNamespaceHandler</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetActivitiesDefinitionParser.html">GetActivitiesDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetActivityDefinitionParser.html">GetActivityDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetActivityStatsDefinitionParser.html">GetActivityStatsDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetBadgesDefinitionParser.html">GetBadgesDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetBloodPressureDefinitionParser.html">GetBloodPressureDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetBodyFatDefinitionParser.html">GetBodyFatDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetBodyFatRangeDefinitionParser.html">GetBodyFatRangeDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetBodyMeasurementsDefinitionParser.html">GetBodyMeasurementsDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetBodyWeightDefinitionParser.html">GetBodyWeightDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetBodyWeightRangeDefinitionParser.html">GetBodyWeightRangeDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetDevicesDefinitionParser.html">GetDevicesDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetFavoriteActivitiesDefinitionParser.html">GetFavoriteActivitiesDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetFavoriteFoodsDefinitionParser.html">GetFavoriteFoodsDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetFoodDefinitionParser.html">GetFoodDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetFoodsDefinitionParser.html">GetFoodsDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetFoodUnitsDefinitionParser.html">GetFoodUnitsDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetFrequentActivitiesDefinitionParser.html">GetFrequentActivitiesDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetFrequentFoodsDefinitionParser.html">GetFrequentFoodsDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetFriendsDefinitionParser.html">GetFriendsDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetFriendsLeaderboardDefinitionParser.html">GetFriendsLeaderboardDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetGlucoseDefinitionParser.html">GetGlucoseDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetHeartRateDefinitionParser.html">GetHeartRateDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetInvitesDefinitionParser.html">GetInvitesDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetMealsDefinitionParser.html">GetMealsDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetRecentActivitiesDefinitionParser.html">GetRecentActivitiesDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetRecentFoodsDefinitionParser.html">GetRecentFoodsDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetSleepDefinitionParser.html">GetSleepDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetTimeSeriesDefinitionParser.html">GetTimeSeriesDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetUserInfoDefinitionParser.html">GetUserInfoDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetWaterDefinitionParser.html">GetWaterDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/LogActivityDefinitionParser.html">LogActivityDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/LogBloodGlucoseDefinitionParser.html">LogBloodGlucoseDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/LogBloodPressureDefinitionParser.html">LogBloodPressureDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/LogBodyFatDefinitionParser.html">LogBodyFatDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/LogBodyMeasurementsDefinitionParser.html">LogBodyMeasurementsDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/LogBodyWeightDefinitionParser.html">LogBodyWeightDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/LogHeartRateDefinitionParser.html">LogHeartRateDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/LogSleepDefinitionParser.html">LogSleepDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/LogWaterDefinitionParser.html">LogWaterDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/RestoreAccessTokenCallbackFactoryBean.html">RestoreAccessTokenCallbackFactoryBean</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/SaveAccessTokenCallbackFactoryBean.html">SaveAccessTokenCallbackFactoryBean</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/SearchFoodsDefinitionParser.html">SearchFoodsDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/UnauthorizeDefinitionParser.html">UnauthorizeDefinitionParser</a></li>
+        <li class="api apilevel-"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/UpdateUserInfoDefinitionParser.html">UpdateUserInfoDefinitionParser</a></li>
+      </ul>
+    </li>
+              
+              
+              
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links">
+            <a href="../../../../../../packages.html"  >Package Index</a> | 
+            <a href="../../../../../../classes.html" >Class Index</a>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+<div class="api-level">
+  
+
+
+  
+  
+
+</div>
+</div>
+
+<div id="jd-header">
+  package
+  <h1>com.mulesoft.module.fitbit.config</h1>
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+
+
+
+
+
+
+  
+    <h2>Interfaces</h2>
+    <div class="jd-sumtable">
+    
+  <table class="jd-sumtable-expando">
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/AbstractDefinitionParser.ParseDelegate.html">AbstractDefinitionParser.ParseDelegate</a>&lt;T&gt;</td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+  </table>
+    </div>
+  
+
+
+  
+    <h2>Classes</h2>
+    <div class="jd-sumtable">
+    
+  <table class="jd-sumtable-expando">
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/AbstractDefinitionParser.html">AbstractDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/AcceptInviteDefinitionParser.html">AcceptInviteDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/AddFavoriteActivityDefinitionParser.html">AddFavoriteActivityDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/AddFavoriteFoodDefinitionParser.html">AddFavoriteFoodDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/AuthorizeDefinitionParser.html">AuthorizeDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/BrowseActivitiesDefinitionParser.html">BrowseActivitiesDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/DeleteActivityLogDefinitionParser.html">DeleteActivityLogDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/DeleteBloodPressureLogDefinitionParser.html">DeleteBloodPressureLogDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/DeleteBodyFatLogDefinitionParser.html">DeleteBodyFatLogDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/DeleteBodyWeightLogDefinitionParser.html">DeleteBodyWeightLogDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/DeleteFavoriteActivityDefinitionParser.html">DeleteFavoriteActivityDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/DeleteFavoriteFoodDefinitionParser.html">DeleteFavoriteFoodDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/DeleteFoodLogDefinitionParser.html">DeleteFoodLogDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/DeleteHeartRateLogDefinitionParser.html">DeleteHeartRateLogDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/DeleteSleepLogDefinitionParser.html">DeleteSleepLogDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/DeleteWaterLogDefinitionParser.html">DeleteWaterLogDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/FitbitModuleConfigDefinitionParser.html">FitbitModuleConfigDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/FitbitNamespaceHandler.html">FitbitNamespaceHandler</a></td>
+              <td class="jd-descrcol" width="100%">Registers bean definitions parsers for handling elements in <code>http://www.mulesoft.org/schema/mule/fitbit</code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetActivitiesDefinitionParser.html">GetActivitiesDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetActivityDefinitionParser.html">GetActivityDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetActivityStatsDefinitionParser.html">GetActivityStatsDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetBadgesDefinitionParser.html">GetBadgesDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetBloodPressureDefinitionParser.html">GetBloodPressureDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetBodyFatDefinitionParser.html">GetBodyFatDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetBodyFatRangeDefinitionParser.html">GetBodyFatRangeDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetBodyMeasurementsDefinitionParser.html">GetBodyMeasurementsDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetBodyWeightDefinitionParser.html">GetBodyWeightDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetBodyWeightRangeDefinitionParser.html">GetBodyWeightRangeDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetDevicesDefinitionParser.html">GetDevicesDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetFavoriteActivitiesDefinitionParser.html">GetFavoriteActivitiesDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetFavoriteFoodsDefinitionParser.html">GetFavoriteFoodsDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetFoodDefinitionParser.html">GetFoodDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetFoodsDefinitionParser.html">GetFoodsDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetFoodUnitsDefinitionParser.html">GetFoodUnitsDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetFrequentActivitiesDefinitionParser.html">GetFrequentActivitiesDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetFrequentFoodsDefinitionParser.html">GetFrequentFoodsDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetFriendsDefinitionParser.html">GetFriendsDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetFriendsLeaderboardDefinitionParser.html">GetFriendsLeaderboardDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetGlucoseDefinitionParser.html">GetGlucoseDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetHeartRateDefinitionParser.html">GetHeartRateDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetInvitesDefinitionParser.html">GetInvitesDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetMealsDefinitionParser.html">GetMealsDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetRecentActivitiesDefinitionParser.html">GetRecentActivitiesDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetRecentFoodsDefinitionParser.html">GetRecentFoodsDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetSleepDefinitionParser.html">GetSleepDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetTimeSeriesDefinitionParser.html">GetTimeSeriesDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetUserInfoDefinitionParser.html">GetUserInfoDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/GetWaterDefinitionParser.html">GetWaterDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/LogActivityDefinitionParser.html">LogActivityDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/LogBloodGlucoseDefinitionParser.html">LogBloodGlucoseDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/LogBloodPressureDefinitionParser.html">LogBloodPressureDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/LogBodyFatDefinitionParser.html">LogBodyFatDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/LogBodyMeasurementsDefinitionParser.html">LogBodyMeasurementsDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/LogBodyWeightDefinitionParser.html">LogBodyWeightDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/LogHeartRateDefinitionParser.html">LogHeartRateDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/LogSleepDefinitionParser.html">LogSleepDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/LogWaterDefinitionParser.html">LogWaterDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/RestoreAccessTokenCallbackFactoryBean.html">RestoreAccessTokenCallbackFactoryBean</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/SaveAccessTokenCallbackFactoryBean.html">SaveAccessTokenCallbackFactoryBean</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/SearchFoodsDefinitionParser.html">SearchFoodsDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/UnauthorizeDefinitionParser.html">UnauthorizeDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/com/mulesoft/module/fitbit/config/UpdateUserInfoDefinitionParser.html">UpdateUserInfoDefinitionParser</a></td>
+              <td class="jd-descrcol" width="100%">&nbsp;</td>
+          </tr>
+  </table>
+    </div>
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+<div id="footer">
+Generated by <a href="http://www.mulesoft.com/devkit">Mule DevKit</a>. Document generation technology based on <a href="http://code.google.com/p/doclava/">Google's Doclava</a>.
+</div> <!-- end footer -->
+
+</div><!-- end jd-content -->
+</div><!-- doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize mule-developer-docs.js */
+</script>
+
+</body>
+</html>
